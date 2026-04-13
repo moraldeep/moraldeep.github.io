@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>RAG Agent with Database Routing | Moraldeep Sachdeo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="RAG Agent with Database Routing is a multi-database retrieval workflow that routes queries across product, support, and finance collections with web fallback when needed." />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/portfolio-favicon.svg">
+    <link rel="shortcut icon" href="../assets/img/portfolio-favicon.svg">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myLinks");
+        var icon = document.querySelector('.topnav a.icon');
+        x.classList.toggle('open');
+        icon.classList.toggle('active');
+      }
+    </script>
+  </head>
+  <body>
+
+    <div class="topnav">
+      <div id="myLinks">
+        <a class="normal right" href="../#contact">Contact</a>
+        <a class="normal" href="../#reads">Reads</a>
+        <a class="normal" href="../#education">Education</a>
+        <a class="normal" href="../#projects">Projects</a>
+        <a class="normal" href="../#experience">Experience</a>
+        <a class="normal" href="../#ai-projects">Vibe-Coding</a>
+        <a class="normal" href="../">Home</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <span class="icon-wrap">
+          <i class="fa fa-bars icon-bars"></i>
+          <i class="fa fa-xmark icon-xmark"></i>
+        </span>
+      </a>
+    </div>
+
+    <div class="wrapper">
+      <header>
+        <a class="image avatar"><img src="../assets/img/avatar.jpg" alt="Moraldeep Sachdeo" /></a>
+        <h1>Moraldeep Sachdeo</h1>
+        <position style="font-size:1.10rem;">Product Manager</position>
+        <br>
+        <autocolor>Mountain View, CA</autocolor>
+        <br>
+        <a href="mailto:moraldeepsingh@berkeley.edu"><email>moraldeepsingh@berkeley.edu</email></a>
+        <br>
+        <br>
+        <div class="social-icons">
+          <a style="margin: 0 5px 0 0" href="https://www.linkedin.com/in/moraldeepsingh/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a style="margin: 0 5px 0 0" href="https://scholar.google.com/citations?user=12dLp4wAAAAJ&hl=en" title="Google Scholar"><i class="ai ai-google-scholar" style="font-size:1.2rem"></i></a>
+          <a style="margin: 0 0 0 0" href="https://github.com/moraldeep" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <br>
+      </header>
+
+      <section>
+        <p><a href="../#ai-projects">&larr; Back to Vibe-Coding</a></p>
+
+        <h2 style="margin: 40px 0px 10px;">RAG Agent with Database Routing</h2>
+        <p><em>A routed retrieval system that decides which knowledge base should answer a question instead of forcing every query through the same index.</em></p>
+
+        <div style="max-width:100%; margin:18px 0 24px; padding:28px 24px; border:1px solid #e5e7eb; border-radius:12px; background:linear-gradient(150deg, #111827 0%, #0369a1 52%, #22c55e 100%); color:#fff;">
+          <div style="font-size:0.82em; letter-spacing:0.14em; text-transform:uppercase; opacity:0.8; margin-bottom:8px;">RAG Routing Workflow</div>
+          <div style="font-size:1.9em; font-weight:700; line-height:1.15; margin-bottom:10px;">Route first, retrieve second, and fall back to the web only when the indexed sources are weak</div>
+          <div style="max-width:720px; line-height:1.7; color:rgba(255,255,255,0.92);">This project demonstrates a more production-minded RAG pattern: separate corpora for product, support, and finance content, confidence-aware routing across them, and a web-research fallback when the internal collections do not contain strong evidence.</div>
+        </div>
+
+        <h3>Overview</h3>
+        <p>RAG Agent with Database Routing is built around a simple idea: not every question belongs in the same retrieval bucket. Instead of dumping all documents into one vector store and hoping retrieval sorts it out, the system keeps multiple specialized collections and decides which one should handle the query before answer generation begins.</p>
+
+        <h3>What The Product Does</h3>
+        <ul>
+          <li>Lets users upload PDF documents into separate domain-specific databases for product, support, and financial knowledge</li>
+          <li>Routes each question to the most relevant collection based on similarity scoring across the indexed databases</li>
+          <li>Falls back to an LLM-based router when similarity confidence is low or ambiguous</li>
+          <li>Uses a web-research fallback when none of the internal databases are a good fit</li>
+          <li>Returns context-grounded answers while keeping the retrieval path explicit to the user</li>
+        </ul>
+
+        <h3>Implementation Details</h3>
+        <ul>
+          <li>Built as a <strong>Streamlit</strong> application with a credential and upload flow in the sidebar plus database-specific upload tabs in the main view</li>
+          <li>Uses <strong>PyPDFLoader</strong> and <strong>RecursiveCharacterTextSplitter</strong> to process uploaded PDFs into retrievable chunks</li>
+          <li>Uses <strong>OpenAI embeddings</strong> with <strong>Qdrant</strong> collections for the three domain-specific databases</li>
+          <li>Uses <strong>LangChain</strong> retrieval chains to assemble grounded answers from the chosen collection</li>
+          <li>Uses an <strong>Agno routing agent</strong> as a backup router for low-confidence cases</li>
+          <li>Uses a <strong>LangGraph ReAct-style fallback agent</strong> with DuckDuckGo search for out-of-distribution questions</li>
+        </ul>
+
+        <h3>Why It Matters</h3>
+        <p>The value here is architectural, not just visual. It demonstrates that retrieval quality is partly a routing problem. By separating product, support, and finance knowledge and using a staged routing strategy, the system reduces the chances of semantically adjacent but operationally wrong documents steering the answer.</p>
+
+        <h3>Design Decisions</h3>
+        <ul>
+          <li>Multiple collections keep the corpora semantically narrower and easier to reason about</li>
+          <li>Vector similarity is used first because it is fast and cheap for obvious queries</li>
+          <li>LLM routing only appears when the similarity signals are weak, which keeps the flow efficient</li>
+          <li>Web fallback is explicit rather than silent so the user can tell when the system has left the curated internal data</li>
+        </ul>
+
+        <h3>Role and Focus</h3>
+        <p><strong>Role:</strong> Solo builder focused on multi-corpus retrieval architecture, routing logic, and fallback design.</p>
+        <p><strong>Tech Stack:</strong> Streamlit, LangChain, LangGraph, Agno, Qdrant, OpenAI embeddings.</p>
+        <p><strong>Category:</strong> Retrieval-augmented generation, query routing, knowledge systems, search architecture.</p>
+        <p><strong>Positioning:</strong> Think <em>"intent router for RAG,"</em> rather than a single-index document chatbot.</p>
+
+        <h3>Thumbnail Alt Text</h3>
+        <p>RAG routing interface showing multiple specialized document databases and a question-answer flow that chooses the best collection before retrieval.</p>
+
+        <br>
+      </section>
+
+      <footer>
+        <div style="font: 12px/1.2 Crimson Pro, serif">
+          <p><small></small></p>
+        </div>
+      </footer>
+    </div>
+    <script src="../assets/js/scale.fix.js"></script>
+  </body>
+</html>

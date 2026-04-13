@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Pedestrian Intention Prediction | Moraldeep Sachdeo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Pedestrian Intention Prediction - Collaborative research project with Volvo Cars, UC Berkeley, and Chalmers University.">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/portfolio-favicon.svg">
+    <link rel="shortcut icon" href="../assets/img/portfolio-favicon.svg">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myLinks");
+        var icon = document.querySelector('.topnav a.icon');
+        x.classList.toggle('open');
+        icon.classList.toggle('active');
+      }
+    </script>
+  </head>
+  <body>
+
+    <div class="topnav">
+      <div id="myLinks">
+        <a class="normal right" href="../#contact">Contact</a>
+        <a class="normal" href="../#reads">Reads</a>
+        <a class="normal" href="../#education">Education</a>
+        <a class="normal" href="../#projects">Projects</a>
+        <a class="normal" href="../#experience">Experience</a>
+        <a class="normal" href="../#ai-projects">Vibe-Coding</a>
+        <a class="normal" href="../">Home</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <span class="icon-wrap">
+          <i class="fa fa-bars icon-bars"></i>
+          <i class="fa fa-xmark icon-xmark"></i>
+        </span>
+      </a>
+    </div>
+
+    <div class="wrapper">
+      <header>
+        <a class="image avatar"><img src="../assets/img/avatar.jpg" alt="Moraldeep Sachdeo" /></a>
+        <h1>Moraldeep Sachdeo</h1>
+        <position style="font-size:1.10rem;">Product Manager</position>
+        <br>
+        <autocolor>Mountain View, CA</autocolor>
+        <br>
+        <a href="mailto:moraldeepsingh@berkeley.edu"><email>moraldeepsingh@berkeley.edu</email></a>
+        <br>
+        <br>
+        <div class="social-icons">
+          <a style="margin: 0 5px 0 0" href="https://www.linkedin.com/in/moraldeepsingh/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a style="margin: 0 5px 0 0" href="https://scholar.google.com/citations?user=12dLp4wAAAAJ&hl=en" title="Google Scholar"><i class="ai ai-google-scholar" style="font-size:1.2rem"></i></a>
+          <a style="margin: 0 0 0 0" href="https://github.com/moraldeep" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <br>
+      </header>
+
+      <section>
+        <p><a href="../#projects">&larr; Back to Projects</a></p>
+
+        <h2 style="margin: 40px 0px 10px;">Pedestrian Intention Prediction</h2>
+        <p><em>Product Management / Research &mdash; Volvo Cars &times; UC Berkeley &times; Chalmers University</em></p>
+
+        <p>
+          <img src="../assets/img/projects/modelA.gif" alt="Model A - Pedestrian Intention Prediction" style="max-width:100%; margin-bottom:8px;"><br>
+          <img src="../assets/img/projects/modelC.gif" alt="Model C - Fusion-based Prediction" style="max-width:100%; margin-bottom:8px;">
+        </p>
+
+        <h3>Overview</h3>
+        <p>Collaborative research project between Volvo Cars, and student teams from UC Berkeley and Chalmers University. The project was aimed at predicting the intention of a pedestrian to cross or not cross the road &mdash; a successful attempt to emulate the behavior of a human driver to guess the intention of fellow road users such as pedestrians.</p>
+
+        <h3>Approach</h3>
+        <p>Our team based the approach on a research paper that had some progress in this line of work. After replicating the paper, our teams decided on experimenting with additional approaches and eventually arrived at <strong>Fusion-based Intention Prediction Networks</strong>.</p>
+
+        <p>The first model consisted of 3 components:</p>
+        <ul>
+          <li><strong>Object Detector (YOLOv3)</strong> &mdash; dissects video into frames and localizes pedestrians by plotting bounding boxes</li>
+          <li><strong>Object Tracker (SORT)</strong> &mdash; tracks detected pedestrians with unique IDs across frames</li>
+          <li><strong>3D Scene Classifier (DenseNet)</strong> &mdash; uses pedestrian information to predict crossing intention (green = non-crossing, red = crossing)</li>
+        </ul>
+
+        <p>The challenge was to predict intention at least <strong>0.5 seconds before</strong> the intended action occurred, which from a safety perspective was required for the car to make any necessary decision.</p>
+
+        <h3>Experimentation</h3>
+        <p>Our teams experimented with alternate components:</p>
+        <ul>
+          <li>Trackers: SORT, DeepSORT, Pose-Estimation based detection and tracking</li>
+          <li>Classifiers: Recurrent Neural Networks, Random Forest, DenseNets</li>
+          <li>Feature engineering: applied skeletons using Pose-Estimator and retrained the classifier</li>
+        </ul>
+
+        <h3>Results</h3>
+        <p>Using the new classifier and additional feature engineering, we achieved an improved <strong>AP score of 0.89</strong> &mdash; surpassing the original research paper. The model successfully predicts pedestrian intent 0.5 seconds before the intended action occurs.</p>
+
+        <h3>Links</h3>
+        <ul>
+          <li><a href="https://github.com/mjpramirez/Volvo-DataX">GitHub Repo</a></li>
+          <li><a href="https://matthew29tang.github.io/pid-model/#/">Project Website</a></li>
+          <li><a href="https://arxiv.org/abs/2005.07796">Research Paper (arXiv)</a></li>
+        </ul>
+
+        <br>
+      </section>
+
+      <footer>
+        <div style="font: 12px/1.2 Crimson Pro, serif">
+          <p><small>&copy; Moraldeep Sachdeo</small></p>
+        </div>
+      </footer>
+    </div>
+    <script src="../assets/js/scale.fix.js"></script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>AI Meeting Preparation Agent | Moraldeep Sachdeo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="AI Meeting Preparation Agent is a multi-agent workflow that researches company context, builds a meeting agenda, and produces an executive briefing package." />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/portfolio-favicon.svg">
+    <link rel="shortcut icon" href="../assets/img/portfolio-favicon.svg">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myLinks");
+        var icon = document.querySelector('.topnav a.icon');
+        x.classList.toggle('open');
+        icon.classList.toggle('active');
+      }
+    </script>
+  </head>
+  <body>
+
+    <div class="topnav">
+      <div id="myLinks">
+        <a class="normal right" href="../#contact">Contact</a>
+        <a class="normal" href="../#reads">Reads</a>
+        <a class="normal" href="../#education">Education</a>
+        <a class="normal" href="../#projects">Projects</a>
+        <a class="normal" href="../#experience">Experience</a>
+        <a class="normal" href="../#ai-projects">Vibe-Coding</a>
+        <a class="normal" href="../">Home</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <span class="icon-wrap">
+          <i class="fa fa-bars icon-bars"></i>
+          <i class="fa fa-xmark icon-xmark"></i>
+        </span>
+      </a>
+    </div>
+
+    <div class="wrapper">
+      <header>
+        <a class="image avatar"><img src="../assets/img/avatar.jpg" alt="Moraldeep Sachdeo" /></a>
+        <h1>Moraldeep Sachdeo</h1>
+        <position style="font-size:1.10rem;">Product Manager</position>
+        <br>
+        <autocolor>Mountain View, CA</autocolor>
+        <br>
+        <a href="mailto:moraldeepsingh@berkeley.edu"><email>moraldeepsingh@berkeley.edu</email></a>
+        <br>
+        <br>
+        <div class="social-icons">
+          <a style="margin: 0 5px 0 0" href="https://www.linkedin.com/in/moraldeepsingh/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a style="margin: 0 5px 0 0" href="https://scholar.google.com/citations?user=12dLp4wAAAAJ&hl=en" title="Google Scholar"><i class="ai ai-google-scholar" style="font-size:1.2rem"></i></a>
+          <a style="margin: 0 0 0 0" href="https://github.com/moraldeep" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <br>
+      </header>
+
+      <section>
+        <p><a href="../#ai-projects">&larr; Back to Vibe-Coding</a></p>
+
+        <h2 style="margin: 40px 0px 10px;">AI Meeting Preparation Agent</h2>
+        <p><em>A multi-agent workflow that prepares you for a meeting by researching the company, analyzing the market, building an agenda, and packaging everything into an executive brief.</em></p>
+
+        <div style="max-width:100%; margin:18px 0 24px; padding:28px 24px; border:1px solid #e5e7eb; border-radius:12px; background:linear-gradient(155deg, #111827 0%, #7c3aed 48%, #ec4899 100%); color:#fff;">
+          <div style="font-size:0.82em; letter-spacing:0.14em; text-transform:uppercase; opacity:0.8; margin-bottom:8px;">Multi-Agent Preparation</div>
+          <div style="font-size:1.9em; font-weight:700; line-height:1.15; margin-bottom:10px;">Research the company, build the strategy, and walk into the meeting with a real briefing packet</div>
+          <div style="max-width:720px; line-height:1.7; color:rgba(255,255,255,0.92);">The workflow asks for the company, objective, attendees, duration, and focus areas, then runs a sequence of specialized agents to produce context analysis, industry insights, a time-boxed agenda, and an executive-ready prep document.</div>
+        </div>
+
+        <h3>Overview</h3>
+        <p>AI Meeting Preparation Agent is built around the idea that meeting prep is not one task. It is a chain of tasks: understanding the company, identifying industry dynamics, structuring the conversation, and synthesizing the output into something the user can actually carry into the room. The product turns that chain into a guided multi-agent workflow.</p>
+
+        <h3>What The Product Does</h3>
+        <ul>
+          <li>Collects meeting context such as company name, objective, attendees, duration, and areas of concern</li>
+          <li>Researches the company and recent developments before drafting the meeting strategy</li>
+          <li>Generates an industry and competitive landscape summary tailored to the meeting objective</li>
+          <li>Builds a detailed agenda with timing, goals, talking points, and suggested discussion leaders</li>
+          <li>Packages everything into an executive brief with key questions, suggested responses, and next steps</li>
+        </ul>
+
+        <h3>Implementation Details</h3>
+        <ul>
+          <li>Built as a <strong>Streamlit</strong> application with a form-style input flow and sidebar API-key setup</li>
+          <li>Uses <strong>CrewAI</strong> to orchestrate multiple specialized agents in a sequential workflow</li>
+          <li>Runs a <strong>Meeting Context Specialist</strong>, <strong>Industry Expert</strong>, <strong>Meeting Strategist</strong>, and <strong>Communication Specialist</strong></li>
+          <li>Uses <strong>Claude 3.5 Sonnet</strong> for the reasoning-heavy synthesis tasks</li>
+          <li>Uses <strong>Serper</strong> search tooling to gather web context for company and market analysis</li>
+          <li>Outputs markdown-structured deliverables that are immediately readable and presentation-friendly</li>
+        </ul>
+
+        <h3>Why It Matters</h3>
+        <p>The strength of the project is the workflow separation. Instead of one general-purpose model trying to do all preparation at once, the app breaks the job into explicit analytical steps. That makes the output more structured, more actionable, and better aligned with how real meeting preparation actually happens.</p>
+
+        <h3>Design Decisions</h3>
+        <ul>
+          <li>The user input is intentionally structured so the system starts from a clear meeting objective rather than a vague prompt</li>
+          <li>Sequential agents keep the deliverables staged: context first, strategy second, communication packaging last</li>
+          <li>Web search is integrated where it adds real value, especially for company developments and industry context</li>
+          <li>The final output is optimized for usability during the meeting, not just for model completeness</li>
+        </ul>
+
+        <h3>Role and Focus</h3>
+        <p><strong>Role:</strong> Solo prototype builder focused on agent workflow design, decision support UX, and business-prep automation.</p>
+        <p><strong>Tech Stack:</strong> Streamlit, CrewAI, Claude 3.5 Sonnet, Serper search tooling.</p>
+        <p><strong>Category:</strong> Multi-agent systems, business productivity, research automation, executive workflows.</p>
+        <p><strong>Positioning:</strong> Think <em>"executive chief-of-staff prep workflow,"</em> but productized as a multi-agent app.</p>
+
+        <h3>Thumbnail Alt Text</h3>
+        <p>Multi-agent meeting preparation concept showing company research, industry analysis, agenda design, and executive briefing generation in a single workflow.</p>
+
+        <br>
+      </section>
+
+      <footer>
+        <div style="font: 12px/1.2 Crimson Pro, serif">
+          <p><small></small></p>
+        </div>
+      </footer>
+    </div>
+    <script src="../assets/js/scale.fix.js"></script>
+  </body>
+</html>

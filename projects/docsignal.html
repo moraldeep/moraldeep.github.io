@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>DocSignal - Document Authenticity Signal Explorer | Moraldeep Sachdeo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="DocSignal is a document authenticity signal explorer for uploaded identity and financial documents, combining verification heuristics, confidence scoring, and explainable output." />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/portfolio-favicon.svg">
+    <link rel="shortcut icon" href="../assets/img/portfolio-favicon.svg">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myLinks");
+        var icon = document.querySelector('.topnav a.icon');
+        x.classList.toggle('open');
+        icon.classList.toggle('active');
+      }
+    </script>
+  </head>
+  <body>
+
+    <div class="topnav">
+      <div id="myLinks">
+        <a class="normal right" href="../#contact">Contact</a>
+        <a class="normal" href="../#reads">Reads</a>
+        <a class="normal" href="../#education">Education</a>
+        <a class="normal" href="../#projects">Projects</a>
+        <a class="normal" href="../#experience">Experience</a>
+        <a class="normal" href="../#ai-projects">Vibe-Coding</a>
+        <a class="normal" href="../">Home</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <span class="icon-wrap">
+          <i class="fa fa-bars icon-bars"></i>
+          <i class="fa fa-xmark icon-xmark"></i>
+        </span>
+      </a>
+    </div>
+
+    <div class="wrapper">
+      <header>
+        <a class="image avatar"><img src="../assets/img/avatar.jpg" alt="Moraldeep Sachdeo" /></a>
+        <h1>Moraldeep Sachdeo</h1>
+        <position style="font-size:1.10rem;">Product Manager</position>
+        <br>
+        <autocolor>Mountain View, CA</autocolor>
+        <br>
+        <a href="mailto:moraldeepsingh@berkeley.edu"><email>moraldeepsingh@berkeley.edu</email></a>
+        <br>
+        <br>
+        <div class="social-icons">
+          <a style="margin: 0 5px 0 0" href="https://www.linkedin.com/in/moraldeepsingh/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a style="margin: 0 5px 0 0" href="https://scholar.google.com/citations?user=12dLp4wAAAAJ&hl=en" title="Google Scholar"><i class="ai ai-google-scholar" style="font-size:1.2rem"></i></a>
+          <a style="margin: 0 0 0 0" href="https://github.com/moraldeep" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <br>
+      </header>
+
+      <section>
+        <p><a href="../#ai-projects">&larr; Back to Vibe-Coding</a></p>
+
+        <h2 style="margin: 40px 0px 10px;">DocSignal &mdash; Document Authenticity Signal Explorer</h2>
+        <p><em>A transparent document verification experience that turns black-box document checks into visible, explainable authenticity signals.</em></p>
+
+        <div style="max-width:100%; margin:18px 0 24px; padding:28px 24px; border:1px solid #e5e7eb; border-radius:12px; background:linear-gradient(160deg, #13294B 0%, #1d4ed8 52%, #ff5f05 100%); color:#fff;">
+          <div style="font-size:0.82em; letter-spacing:0.14em; text-transform:uppercase; opacity:0.8; margin-bottom:8px;">Verification Workflow</div>
+          <div style="font-size:1.9em; font-weight:700; line-height:1.15; margin-bottom:10px;">Upload, classify, score, and explain document authenticity in one flow</div>
+          <div style="max-width:720px; line-height:1.7; color:rgba(255,255,255,0.92);">DocSignal accepts common identity and financial documents, runs multiple verification heuristics, extracts key fields, and surfaces an interpretable confidence score instead of hiding the reasoning behind a pass or fail.</div>
+        </div>
+
+        <h3>Overview</h3>
+        <p>DocSignal is a transparent document verification platform designed to analyze uploaded documents and expose the signals behind an authenticity decision. Rather than returning a single opaque verdict, the experience breaks down the checks performed on the file, classifies the document type, extracts key information, and surfaces explainable reasoning for the overall score.</p>
+
+        <h3>What The Product Does</h3>
+        <ul>
+          <li>Accepts uploads for documents such as passports, driver's licenses, utility bills, bank statements, and paystubs</li>
+          <li>Supports drag-and-drop or click-to-upload flows for PDF, JPG, and PNG files up to 10 MB</li>
+          <li>Combines multiple verification heuristics, including rule-based logic and LLM-assisted checks</li>
+          <li>Classifies document type and extracts key fields needed for downstream review</li>
+          <li>Returns authenticity signals, an overall confidence score, and a human-readable explanation of the result</li>
+        </ul>
+
+        <h3>Implementation Details</h3>
+        <ul>
+          <li>Built with <strong>Next.js 14 App Router</strong>, <strong>TypeScript</strong>, and <strong>Tailwind CSS</strong></li>
+          <li>Uses <strong>pdf-parse</strong> for PDF text extraction and <strong>tesseract.js v5</strong> for OCR on image documents</li>
+          <li>Runs a modular pipeline for classification, field extraction, signal generation, scoring, and explanation</li>
+          <li>Produces <strong>6 authenticity signals</strong>: text quality, consistency checks, template/layout hints, metadata anomalies, tamper heuristics, and field completeness</li>
+          <li>Maps the weighted score to a recommended action such as <strong>Auto-accept</strong>, <strong>Needs review</strong>, or <strong>Reject</strong></li>
+          <li>Includes <strong>JSON export</strong> and an <strong>/eval</strong> page backed by bundled fixtures for sanity testing</li>
+        </ul>
+
+        <h3>Why It Matters</h3>
+        <p>The core idea is to make document verification more inspectable. Instead of treating authenticity assessment as a black box, DocSignal shows the evidence and reasoning behind the score, making the workflow more useful for product teams, risk teams, and operations reviewers who need clarity rather than just a binary decision.</p>
+
+        <h3>Design Decisions</h3>
+        <ul>
+          <li>Stateless by design: files are processed in-memory only, with no database or long-term storage</li>
+          <li>Heuristic-first pipeline keeps the default experience deterministic and inexpensive to run</li>
+          <li>Optional LLM insights sit behind a feature flag rather than being required for the core workflow</li>
+          <li>Server-side validation enforces file-type and size limits before analysis</li>
+        </ul>
+
+        <h3>Interface Notes</h3>
+        <ul>
+          <li>Single-screen workflow centered on upload and analysis</li>
+          <li>Designed to make document support and file constraints immediately visible</li>
+          <li>Presentation emphasizes trust, legibility, and interpretability over opaque automation</li>
+        </ul>
+
+        <h3>Role and Focus</h3>
+        <p><strong>Role:</strong> Solo builder across product framing, trust-oriented UX, and implementation.</p>
+        <p><strong>Tech Stack:</strong> Next.js 14, TypeScript, Tailwind CSS, pdf-parse, tesseract.js, Vitest, Vercel.</p>
+        <p><strong>Category:</strong> AI / ML, document verification, explainable scoring, risk tooling.</p>
+        <p><strong>Positioning:</strong> Think <em>"Stripe Radar for documents, but transparent."</em></p>
+
+        <h3>Links</h3>
+        <ul>
+          <li><a href="https://doc-verify-signal-explorer.vercel.app/">Live App</a></li>
+          <li><a href="https://doc-verify-signal-explorer.vercel.app/eval">Evaluation Page</a></li>
+          <li><a href="https://github.com/moraldeep/DocVerify-Signal-Explorer">GitHub Repository</a></li>
+        </ul>
+
+        <h3>Thumbnail Alt Text</h3>
+        <p>DocSignal interface showing a document upload panel for verification with supported identity and financial document types and a trust-focused analysis workflow.</p>
+
+        <br>
+      </section>
+
+      <footer>
+        <div style="font: 12px/1.2 Crimson Pro, serif">
+          <p><small></small></p>
+        </div>
+      </footer>
+    </div>
+    <script src="../assets/js/scale.fix.js"></script>
+  </body>
+</html>
